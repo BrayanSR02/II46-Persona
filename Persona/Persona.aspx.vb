@@ -1,0 +1,28 @@
+﻿Public Class Persona
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+    End Sub
+
+    Protected Sub btnGuardar_Click(sender As Object, e As EventArgs)
+
+        Dim persona As New Models.Persona()
+        'Validar campos obligatorios
+        If txtFechaNacimiento.Text = "" Or txtNombre.Text = "" Or txtApellidos.Text = "" Or txtCorreo.Text = "" Or txtDocumento.Text = "" Then
+            lblResultado.Text = "Por favor, complete todos los campos obligatorios."
+            Return
+        End If
+
+        persona.Nombre = txtNombre.Text.Trim()
+        persona.Apellidos = txtApellidos.Text.Trim()
+        persona.FechaNacimiento = txtFechaNacimiento.Text.Trim()
+        persona.Correo = txtCorreo.Text.Trim()
+        persona.TipoDocumento = ddlTipoDocumento.SelectedItem.Text.Trim()
+        persona.NumeroDocumento = txtDocumento.Text.Trim()
+
+        lblResultado.Text = persona.Resumen()
+
+
+    End Sub
+End Class
