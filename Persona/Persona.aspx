@@ -53,4 +53,19 @@
 
     <asp:Label ID="lblResultado" runat="server" Text="" CssClass="control-label"></asp:Label>
 
+    <asp:GridView ID="gvPersonas" runat="server" AutoGenerateColumns="False" DataKeyNames="IDPersona" DataSourceID="SqlDataSource2">
+        <Columns>
+            <asp:BoundField DataField="IDPersona" HeaderText="IDPersona" InsertVisible="False" ReadOnly="True" SortExpression="IDPersona" />
+            <asp:BoundField DataField="TipoDocumento" HeaderText="TipoDocumento" SortExpression="TipoDocumento" />
+            <asp:BoundField DataField="Documento" HeaderText="Documento" SortExpression="Documento" />
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+            <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
+            <asp:BoundField DataField="FechaNac" HeaderText="FechaNac" SortExpression="FechaNac" />
+            <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
+        </Columns>
+    </asp:GridView>
+
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:II-46ConnectionString2 %>" ProviderName="<%$ ConnectionStrings:II-46ConnectionString2.ProviderName %>" SelectCommand="SELECT * FROM [Personas]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:II-46ConnectionString %>" ProviderName="<%$ ConnectionStrings:II-46ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Personas]"></asp:SqlDataSource>
+
 </asp:Content>
