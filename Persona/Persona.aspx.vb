@@ -34,4 +34,16 @@ Public Class Persona
         End If
 
     End Sub
+
+    Protected Sub gvPersonas_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
+        e.Cancel = True
+        Dim id As Integer = Convert.ToInt32(gvPersonas.DataKeys(e.RowIndex).Value)
+        Dim resultado = db.EliminarPersona(id)
+        If resultado Then
+            SwalUtils.ShowSwal(Me, "Persona eliminada exitosamente.")
+            gvPersonas.DataBind()
+        Else
+            SwalUtils.ShowSwalError(Me, "Persona no se puedo eliminar.")
+        End If
+    End Sub
 End Class

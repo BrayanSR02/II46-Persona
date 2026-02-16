@@ -25,4 +25,13 @@ Public Class PersonaDB
         End Using
         Return True
     End Function
+    Public Function EliminarPersona(ByVal id As Integer) As Boolean
+        'Lógica para eliminar una persona de la base de datos
+        Dim query As String = "DELETE FROM Personas WHERE IDPersona = @Id"
+        Dim parameters As New Dictionary(Of String, Object) From {
+                {"@Id", id}
+            }
+        Return db.ExecuteNonQuery(query, parameters)
+        
+    End Function
 End Class
